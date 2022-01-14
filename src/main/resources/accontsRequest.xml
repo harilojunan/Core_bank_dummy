@@ -2,19 +2,23 @@
                   xmlns:as="http://www.trabeya.com/core_bank/accounts">
     <soapenv:Header/>
     <soapenv:Body>
+        <!--Get account request data-->
         <as:getAccountRequest>
             <as:user_id>001001</as:user_id>
             <as:account_no>a001</as:account_no>
         </as:getAccountRequest>
+        <!--Get total amount request data-->
         <as:getTotalAmountRequest>
             <as:userId>001001</as:userId>
         </as:getTotalAmountRequest>
+        <!--Own fund transfer request data-->
         <as:ownFundTransfer>
             <as:own_source_user_id>001001</as:own_source_user_id>
             <as:own_source_account_no>a001</as:own_source_account_no>
             <as:own_destination_account_no>a002</as:own_destination_account_no>
             <as:transfer_amount>15000</as:transfer_amount>
         </as:ownFundTransfer>
+        <!--Other fund transfer request data-->
         <as:otherFundTransfer>
             <as:source_user_id>001002</as:source_user_id>
             <as:source_account_no>a002</as:source_account_no>
