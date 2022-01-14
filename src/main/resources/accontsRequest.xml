@@ -1,0 +1,26 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:as="http://www.trabeya.com/core_bank/accounts">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <as:getAccountRequest>
+            <as:user_id>001001</as:user_id>
+            <as:account_no>a001</as:account_no>
+        </as:getAccountRequest>
+        <as:getTotalAmountRequest>
+            <as:userId>001001</as:userId>
+        </as:getTotalAmountRequest>
+        <as:ownFundTransfer>
+            <as:own_source_user_id>001001</as:own_source_user_id>
+            <as:own_source_account_no>a001</as:own_source_account_no>
+            <as:own_destination_account_no>a002</as:own_destination_account_no>
+            <as:transfer_amount>15000</as:transfer_amount>
+        </as:ownFundTransfer>
+        <as:otherFundTransfer>
+            <as:source_user_id>001002</as:source_user_id>
+            <as:source_account_no>a002</as:source_account_no>
+            <as:destination_user_id>001003</as:destination_user_id>
+            <as:destination_account_no>a003</as:destination_account_no>
+            <as:transfer_amount>10000</as:transfer_amount>
+        </as:otherFundTransfer>
+    </soapenv:Body>
+</soapenv:Envelope>

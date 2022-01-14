@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.trabeya.com/core_bank/accounts"
+           xmlns:tns="http://www.trabeya.com/core_bank/accounts"
+           elementFormDefault="qualified">
+
+    <xs:element name="getAccountRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user_id" type="xs:string"/>
+                <xs:element name="account_no" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAccountResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="account" type="tns:account"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="account">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:string"/>
+            <xs:element name="account_no" type="xs:string"/>
+            <xs:element name="balance" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getTotalAmountRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="userId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getTotalAmountResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="totalAmount" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ownFundTransfer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="own_source_user_id" type="xs:string"/>
+                <xs:element name="own_source_account_no" type="xs:string"/>
+                <xs:element name="own_destination_account_no" type="xs:string"/>
+                <xs:element name="transfer_amount" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ownFundTransferResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="our_user_id" type="xs:string"/>
+                <xs:element name="our_account_no" type="xs:string"/>
+                <xs:element name="initial_account_balance" type="xs:double"/>
+                <xs:element name="final_account_balance" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="otherFundTransfer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="source_user_id" type="xs:string"/>
+                <xs:element name="source_account_no" type="xs:string"/>
+                <xs:element name="destination_user_id" type="xs:string"/>
+                <xs:element name="destination_account_no" type="xs:string"/>
+                <xs:element name="transfer_amount" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="otherFundTransferResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="our_user_id" type="xs:string"/>
+                <xs:element name="our_account_no" type="xs:string"/>
+                <xs:element name="initial_account_balance" type="xs:double"/>
+                <xs:element name="final_account_balance" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
