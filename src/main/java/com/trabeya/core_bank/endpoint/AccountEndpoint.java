@@ -7,13 +7,17 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-
+//*
+//Author: Harilojunan.N
+//Date	: 13/January/2022
+//*
 @Endpoint
 public class AccountEndpoint {
 
     @Autowired
     AccountServices accountServices = new AccountServices();
 
+    // Get Account datas
     @PayloadRoot(namespace = "http://www.trabeya.com/core_bank/accounts", localPart = "getAccountRequest")
     @ResponsePayload
     public GetAccountResponse getAccountRequest(@RequestPayload GetAccountRequest request) {
@@ -26,6 +30,7 @@ public class AccountEndpoint {
         return response;
     }
 
+    // Get Total Amount data using user_id
     @PayloadRoot(namespace = "http://www.trabeya.com/core_bank/accounts", localPart = "getTotalAmountRequest")
     @ResponsePayload
     public GetTotalAmountResponse getTotalAmountRequest(@RequestPayload GetTotalAmountRequest request) {
@@ -38,6 +43,7 @@ public class AccountEndpoint {
         return response;
     }
 
+    // Own Account Fund Transfer
     @PayloadRoot(namespace = "http://www.trabeya.com/core_bank/accounts", localPart = "ownFundTransfer")
     @ResponsePayload
     public OwnFundTransferResponse ownFundTransfer(@RequestPayload OwnFundTransfer request) {
@@ -51,6 +57,7 @@ public class AccountEndpoint {
         return fd;
     }
 
+    // Other Account Fund Transfer
     @PayloadRoot(namespace = "http://www.trabeya.com/core_bank/accounts", localPart = "otherFundTransfer")
     @ResponsePayload
     public OtherFundTransferResponse OtherFundTransfer(@RequestPayload OtherFundTransfer request) {

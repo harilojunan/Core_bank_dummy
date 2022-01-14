@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.*;
-
+//*
+//Author: Harilojunan.N
+//Date	: 13/January/2022
+//*
 @Service
 public class AccountServices {
 
@@ -16,6 +19,7 @@ public class AccountServices {
     @PostConstruct
     public void initialize() {
 
+        // Initializing Accounts
         Account account1 = new Account();
         account1.setUserId("001001");
         account1.setAccountNo("a001");
@@ -60,6 +64,7 @@ public class AccountServices {
         multipleAccounts_account4.add(account5);
         multipleAccounts_account4.add(account6);
 
+        //Creating Account with the HashMap memory
         accounts.put("001001",multipleAccounts_account1);
         accounts.put("001002",multipleAccounts_account2);
         accounts.put("001003",multipleAccounts_account3);
@@ -67,6 +72,7 @@ public class AccountServices {
 
     }
 
+    // Get Account service method
     public Account getAccountRequest(String account_no, String user_id) {
         ArrayList<Account> listOfValues = accounts.get(user_id);
         for (Account ac : listOfValues) {
@@ -77,6 +83,7 @@ public class AccountServices {
         return null;
     }
 
+    // get total service Method
     public double getTotal(String user_id) {
         double total = 0;
         ArrayList<Account> listOfValues = accounts.get(user_id);
@@ -86,6 +93,7 @@ public class AccountServices {
         return total;
     }
 
+    // Own fund transfer method
     public OwnFundTransferResponse ownFundTransfer(String ownSourceUserId, String ownSourceAccountNo,
                                                    String ownDestinationAccountNo, double transferAmount) {
         Account sourceAccount = null;
@@ -115,6 +123,7 @@ public class AccountServices {
         return fundTransfer;
     }
 
+    // Other Fund transfer method
     public OtherFundTransferResponse otherFundTransfer(String sourceUserId, String sourceAccountNo, String destinationUserId,
                                      String destinationAccountNo, double transferAmount) {
         Account sourceAccount = null;
